@@ -4,10 +4,10 @@ import pickle
 
 parser = argparse.ArgumentParser(description='preprocess.py')
 
-parser.add_argument('-load_data', required=True,
+parser.add_argument('-load_data', default='data1/',
                     help="input file for the data")
 
-parser.add_argument('-save_data', required=True,
+parser.add_argument('-save_data', default='data2/',
                     help="Output file for the prepared data")
 
 parser.add_argument('-src_vocab_size', type=int, default=50000,

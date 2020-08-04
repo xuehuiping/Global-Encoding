@@ -29,6 +29,7 @@ def bleu(reference, candidate, log_path, print_log, config):
         result = ft.read()
     os.remove(temp)
     print_log(result)
+    print(result)
 
     return float(result.split()[2][:-1])
 
@@ -50,7 +51,7 @@ def rouge(reference, candidate, log_path, print_log, config):
             f.write(" ".join(candidate[i]).replace(' <\s> ', '\n').replace('<unk>', 'UNK') + '\n')
 
     r = pyrouge.Rouge155()
-    r.model_filename_pattern = '#ID#_reference.txt'
+    r.model_filename_pattern = '(\d+)_reference.txt'
     r.system_filename_pattern = '(\d+)_candidate.txt'
     r.model_dir = ref_dir
     r.system_dir = cand_dir
